@@ -1,0 +1,43 @@
+<div class="container">
+  <%= form_with(model: @event, method: "patch", class: "my-form") do |form| %>
+    <div class="mb-3">
+      <%= form.label :titulo, "Titulo", class: "form-label" %>
+      <%= form.text_field :titulo, class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :descripcion, "Descripción", class: "form-label" %>
+      <%= form.text_field :descripcion, class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :fecha, "Fecha", class: "form-label" %>
+      <%= form.date_field :fecha, class: "form-control" %>
+    </div>
+
+   <div data-controller="map" class="mb-3">
+        <%= form.label :ubicacion, "Ubicacion", class: "form-label" %>
+        <div id="map" style="width: 100%; height: 300px;"></div>
+        <%= form.text_field :ubicacion, class: "form-control ubicacion", required: true %>
+        <%= form.text_field :latitud, class: "form-control latitud", required: true %>
+        <%= form.text_field :longitud, class: "form-control longitud", required: true %>
+    </div> 
+
+    <div class="mb-3">
+      <%= form.label :costo, "Costo", class: "form-label" %>
+      <%= form.number_field :costo, class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+        <%= form.check_box :privado, class: "form-check-input" %>
+        <%= form.label :privado, "Privado", class: "form-check-label" %>
+        <%= form.label :foto, 'Cambiar Imagen', class: "form-label" %>
+        <%= form.file_field :foto, class: "form-control-file" %>
+    </div>
+
+    <div class="text-center">
+      <%= form.submit "Guardar Cambios", class: "btn btn-primary", data: { disable_with: "Creando Evento..." } %>
+      <%= link_to "Regresar", events_index_path, class: "btn btn-secondary" %>
+    </div>
+  <% end %>
+</div>

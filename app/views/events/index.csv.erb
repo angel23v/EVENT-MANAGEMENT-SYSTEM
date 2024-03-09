@@ -1,0 +1,5 @@
+<%- headers = ['Titulo', 'Descripcion', 'Fecha', 'Ubicacion', 'Ubicacion', '', 'Costo', 'Privado', 'Foto'] -%>
+<%= CSV.generate_line headers %>
+<%- @event.each do |event| -%>
+  <%= CSV.generate_line([event.titulo, event.descripcion, event.fecha, event.ubicacion, event.costo, event.privado, event.foto]) -%>
+<%- end -%>

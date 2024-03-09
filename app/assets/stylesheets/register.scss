@@ -1,0 +1,30 @@
+@import "./colors/variables.scss";
+
+.loginbtnr {
+  background-color: $blue;
+  border-color: $blue;
+  border-radius: 5px;
+  color: $white;
+  cursor: pointer;
+  padding: 10px 20px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+.loginbtnr:hover {
+  background-color: $hoverbtn;
+}
+
+.registrarmsgr {
+  background-color: $backgorund-btn;
+  border-color: $white;
+  border-radius: 5px;
+  color: $white;
+  cursor: pointer;
+  padding: 8px 24px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+.registrarmsgr:hover {
+  background-color: $backhover-btn;
+}

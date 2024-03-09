@@ -1,0 +1,49 @@
+@import "./colors/variables.scss";
+
+.contramsg:hover {
+  background-color: $hover-pass;
+}
+
+.separation {
+  margin: 20px 20px;
+}
+
+.contramsg {
+  background-color: $back-pass;
+  border-color: $border-pass;
+  border-radius: 5px;
+  color: $white;
+  cursor: pointer;
+  padding: 15px 35px;
+  text-align: center;
+}
+
+.loginbtn {
+  background-color: $blue;
+  border-color: $blue;
+  border-radius: 5px;
+  color: $white;
+  cursor: pointer;
+  padding: 10px 20px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+.loginbtn:hover {
+  background-color: $login-hover;
+}
+
+.registrarmsg {
+  background-color: $reg-back;
+  border-color: $white;
+  border-radius: 5px;
+  border-radius: 5px;
+  color: $white;
+  cursor: pointer;
+  padding: 15px 35px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+.registrarmsg:hover {
+  background-color: $hover-reg;
+}

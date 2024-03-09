@@ -1,0 +1,24 @@
+<div class="search">
+    <form>
+      <% if signed_in? && current_page?(events_index_path)%>
+        <%= select_tag(:privado, options_for_select([['Privado', true], ['Publico', false]]), class: 'check') %>
+        <%= submit_tag "Filtrar Tipo", class: "filter" %>
+        <%= link_to 'Reiniciar', events_index_path, class: "filter" %>   
+      <% end %>
+    </form>
+    <% if signed_in? && current_page?(events_public_path)%>
+      <%= link_to 'Reiniciar', events_public_path, class: "filter" %>
+    <% end %>
+    <form>
+      <% if signed_in? && (current_page?(events_index_path) || current_page?(events_public_path))%>
+        <%= date_field :fecha, @date, class: 'field',required: true %>
+        <%= submit_tag "Filtrar Fecha", class: "filter" %>
+        <%= will_paginate @event, 
+                  previous_label: '<span class="previous"> </span>', 
+                  next_label: '<span class="next"> </span>', 
+                  previous_disabled_class: 'disabled', 
+                  next_disabled_class: @event.next_page ? nil : 'disabled', class: 'paginate'
+        %>
+      <% end %>
+    </form>
+</div> 

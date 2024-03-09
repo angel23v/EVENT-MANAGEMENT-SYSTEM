@@ -1,0 +1,51 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark border-bottom border-body" data-bs-theme="dark">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <% unless signed_in? %>
+          <p class="text-light">SISTEMA DE GESTION DE EVENTOS</p>
+          <% else %>
+            <%= link_to "Sistema de Gestion Eventos", events_main_path, class: "btn btn-dark text-light" %>
+          <% end %>
+        <li class="nav-item">
+          <% if signed_in? && current_page?(events_main_path) || current_page?(root_path)%>
+            <%= link_to "Iniciar", events_index_path , class: "nav-link active"%>
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <% if signed_in? && current_page?(events_index_path)%>
+            <%= link_to "Añadir nuevo evento", events_new_path , class: "nav-link active"%>
+            <% else %>
+              <% link_to destroy_user_session_path, data:{turbo_method: :delete} %>
+          <% end %>
+        </li>
+          <% if signed_in? && current_page?(events_index_path)%>
+            <li class="nav-item">
+              <%= link_to "Eventos Publicos", events_public_path , class: "nav-link active"%>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Descargar mis Eventos', events_index_path(format: :csv), class: "nav-link active" %>
+            </li>
+          <% end %>
+        <% if signed_in? && current_page?(events_public_path)%>
+          <li class="nav-item">
+              <%= link_to "Mis Eventos", events_index_path , class: "nav-link active"%>
+          </li>
+            <li class="nav-item">
+              <%= link_to 'Descargar Eventos Publicos', events_public_path(format: :csv), class: "nav-link active" %>
+          </li>
+        <% end %>
+      </ul>
+
+      <p class="text-light"><%= current_user.name if current_user%></p>
+      
+      <div>
+        <% if signed_in? %>
+          <%= link_to "Cerrar Sesion", destroy_user_session_path, method: :delete, data:{turbo_method: :delete},class: "btn btn-dark" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</nav>

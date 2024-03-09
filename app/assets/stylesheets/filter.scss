@@ -1,0 +1,29 @@
+@import "./colors/variables.scss";
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.paginate {
+  margin-top: 80px;
+
+  a,
+  span {
+    background-color: $white;
+    border: 1px solid $white;
+    color: $border-pass;
+    margin: 0 2px;
+    padding: 5px 10px;
+    text-decoration: none;
+  }
+
+  .disabled {
+    color: #999;
+  }
+
+  .previous,
+  .next {
+    font-weight: bold;
+  }
+}

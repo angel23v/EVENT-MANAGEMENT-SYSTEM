@@ -1,0 +1,21 @@
+<div style="width: 1000px; margin-top: 100px; max-height: 700px; overflow-y: auto; margin-left: 23%;">
+  <div class="d-flex flex-wrap justify-content-between">
+    <% @event.each do |event| %>
+    <div class="mr-3 mb-3" style="width: calc(33.33% - 1rem); max-width: calc(33.33% - 1rem);">
+      <div class="card h-100" style="width: 100%; border-radius: 15px; border: 1px solid #E0E0E0; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+            <div class="card-body">
+              <h5 class="card-title"> Dueño: <%= event.user.name %><%= image_tag "icons/user.svg" %></h5>
+              <h5 class="card-title"> Titulo: <%= event.titulo %><%= image_tag "icons/title.svg" %></h5>
+            </div>
+              <%= event.foto.attached? ? (image_tag event.foto) : ('No hay foto de este evento') %>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><%= image_tag "icons/description.svg" %> Descripción: <%= event.descripcion %></li>
+          <li class="list-group-item"> <%= image_tag "icons/date.svg" %> Fecha: <%= event.fecha %></li>
+          <li class="list-group-item"><%= image_tag "icons/location.svg" %> <%= event.ubicacion.gsub(".", "<br>").html_safe %></li>
+          <li class="list-group-item"> Costo: <%= image_tag "icons/price.svg" %><%= event.costo %> </li>
+        </ul>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
