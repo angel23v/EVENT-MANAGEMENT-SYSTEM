@@ -1,23 +1,350 @@
-![BrightCoders Logo](img/logo.png)
+## EVENT MANAGEMENT SYSTEM
 
-# 🥷 Reto de Programación
- 
-> Ese reto se desarrolla por etapas, al finalizar cada etapa se agregarán los requerimientos de la nueva
+## Table of contents
 
-# 🚀 [Etapa 1: Implementación básica de un administrador de eventos](instructions/stage1.md)
+```
+└── 📁app
+    └── 📁assets
+        └── 📁config
+            └── manifest.js
+        └── 📁images
+            └── .keep
+            └── 📁icons
+                └── date.svg
+                └── description.svg
+                └── list.svg
+                └── location.svg
+                └── price.svg
+                └── private.svg
+                └── title.svg
+                └── trash.svg
+                └── user.svg
+        └── 📁stylesheets
+            └── Control-Geocoder.scss
+            └── application.scss
+            └── 📁colors
+                └── variables.scss
+            └── filter.scss
+            └── index.scss
+            └── login.scss
+            └── passwordc.scss
+            └── register.scss
+    └── 📁channels
+        └── 📁application_cable
+            └── channel.rb
+            └── connection.rb
+    └── 📁controllers
+        └── application_controller.rb
+        └── 📁concerns
+            └── .keep
+        └── events_controller.rb
+        └── key_controller.rb
+    └── 📁helpers
+        └── application_helper.rb
+        └── events_helper.rb
+    └── 📁javascript
+        └── application.js
+        └── 📁controllers
+            └── application.js
+            └── hello_controller.js
+            └── index.js
+            └── map_controller.js
+        └── leaflet.js
+    └── 📁jobs
+        └── application_job.rb
+    └── 📁mailers
+        └── application_mailer.rb
+        └── user_mailer.rb
+    └── 📁models
+        └── application_record.rb
+        └── 📁concerns
+            └── .keep
+        └── event.rb
+        └── user.rb
+    └── 📁views
+        └── 📁devise
+            └── 📁confirmations
+                └── new.html.erb
+            └── 📁mailer
+                └── confirmation_instructions.html.erb
+                └── email_changed.html.erb
+                └── password_change.html.erb
+                └── reset_password_instructions.html.erb
+                └── unlock_instructions.html.erb
+            └── 📁passwords
+                └── edit.html.erb
+                └── new.html.erb
+            └── 📁registrations
+                └── edit.html.erb
+                └── new.html.erb
+            └── 📁sessions
+                └── new.html.erb
+            └── 📁shared
+                └── _error_messages.html.erb
+                └── _links.html.erb
+            └── 📁unlocks
+                └── new.html.erb
+        └── 📁events
+            └── edit.html.erb
+            └── index.csv.erb
+            └── index.html.erb
+            └── main.html.erb
+            └── new.html.erb
+            └── public.csv.erb
+            └── public.html.erb
+        └── 📁layouts
+            └── _filter.html.erb
+            └── _navbar.html.erb
+            └── application.html.erb
+            └── mailer.html.erb
+            └── mailer.text.erb
+        └── 📁user_mailer
+            └── confirm_email.html.erb
+            └── confirm_email.text.erb
+            └── reminder_email.html.erb
+            └── reminder_email.text.erb
+└── 📁bin
+    └── bundle
+    └── delayed_job
+    └── docker-entrypoint
+    └── importmap
+    └── rails
+    └── rake
+    └── setup
+└── 📁config
+    └── application.rb
+    └── boot.rb
+    └── cable.yml
+    └── database.yml
+    └── environment.rb
+    └── 📁environments
+        └── development.rb
+        └── production.rb
+        └── test.rb
+    └── importmap.rb
+    └── 📁initializers
+        └── assets.rb
+        └── content_security_policy.rb
+        └── devise.rb
+        └── filter_parameter_logging.rb
+        └── inflections.rb
+        └── permissions_policy.rb
+    └── 📁locales
+        └── devise.en.yml
+        └── en.yml
+    └── puma.rb
+    └── routes.rb
+    └── schedule.rb
+    └── storage.yml
+└── 📁db
+    └── 📁migrate
+        └── 20240111002811_create_events.rb
+        └── 20240126010724_rename_fields_inevents.rb
+        └── 20240126010854_change_multiple_fields_inevents.rb
+        └── 20240201152000_devise_create_users.rb
+        └── 20240203020251_add_user_to_event_table.rb
+        └── 20240204004419_remove_ubicacion_from_events.rb
+        └── 20240207234158_create_active_storage_tables.active_storage.rb
+        └── 20240215041321_create_delayed_jobs.rb
+        └── 20240216012719_add_new_values_to_user.rb
+    └── schema.rb
+    └── seeds.rb
+└── 📁img
+    └── logo.png
+└── 📁instructions
+    └── agile.md
+    └── 📁img
+        └── 01.png
+        └── 02.png
+        └── 03.png
+        └── 04.png
+        └── 05.png
+        └── 06.png
+        └── 07.png
+        └── 08.png
+        └── 09.png
+        └── 10.png
+        └── 11.png
+    └── issues.md
+    └── milestones.md
+    └── project-planner.md
+    └── stage1.md
+    └── stage2.md
+    └── stage3.md
+    └── workflow.md
+└── 📁lib
+    └── 📁assets
+        └── .keep
+    └── 📁tasks
+        └── .keep
+└── 📁log
+    └── .keep
+    └── cron.log
+    └── development.log
+└── 📁public
+    └── 404.html
+    └── 422.html
+    └── 500.html
+    └── apple-touch-icon-precomposed.png
+    └── apple-touch-icon.png
+    └── favicon.ico
+    └── robots.txt
+└── 📁storage
+    └── .keep
+    └── 📁1z
+        └── 📁vs
+            └── 1zvsw4vdjexqsncy0w38p2l7fy1z
+    └── 📁50
+        ├── n5
+    └── 📁56
+        ├── 7q
+    └── 📁5v
+        ├── 9l
+    └── 📁77
+        ├── 5w
+    └── 📁7u
+        ├── gg
+    └── 📁89
+        └── 📁hc
+            └── 89hc43q4ws8w8m37fbjdvi5o87ug
+    └── 📁8f
+        ├── 4o
+    └── 📁8g
+        ├── 9i
+    └── 📁8s
+        └── 📁qg
+            └── 8sqgtyk2wh9y9xpbjsy6z5qdo0yv
+    └── 📁9k
+        ├── mx
+    └── 📁a1
+        └── 📁n5
+            └── a1n5i09iuabu182lrhuheb47f60w
+    └── 📁ag
+        ├── 1w
+    └── 📁cd
+        ├── 0a
+    └── 📁cp
+        ├── 93
+    └── 📁d2
+        └── 📁d5
+            └── d2d5pcvjf9lx40p9n93ot4ja04q5
+    └── 📁dg
+        └── 📁fs
+            └── dgfskugus3j8zpyeg838kd0svu9k
+        ├── se
+    └── 📁eo
+        └── 📁ng
+            └── eongp0h5nvotjvbhr5rri8pcgcfj
+    └── 📁h6
+        ├── ak
+    └── 📁hq
+        ├── 9c
+    └── 📁hw
+        ├── 5b
+    └── 📁jj
+        ├── 2u
+    └── 📁kf
+        └── 📁sr
+            └── kfsrz76ea63zm8wmssy8fxup4aup
+    └── 📁lx
+        └── 📁83
+            └── lx83w7jrafpm1zc5cq3qpc4bv0gp
+    └── 📁m2
+        └── 📁mm
+            └── m2mm291n0miqusliagfya6o764hr
+    └── 📁pf
+        └── 📁vg
+            └── pfvgji4fzmraxvxeor08481kalum
+    └── 📁r0
+        ├── w3
+    └── 📁u8
+        └── 📁bi
+            └── u8bihz4jonv6p0ekzf0rtna7dsid
+    └── 📁v0
+        └── 📁9e
+            └── v09eccsao5c6ez18e93gjs7kptws
+    └── 📁w0
+        ├── xa
+    └── 📁w8
+        └── 📁kt
+            └── w8ktnb3uza0aews539aqsylvbpw4
+    └── 📁wc
+        ├── 06
+    └── 📁ws
+        ├── 3p
+    └── 📁xh
+        ├── hi
+    └── 📁yb
+        ├── 8k
+    └── 📁yi
+        └── 📁a3
+            └── yia31t8xpahoord2wggzw3e92f7w
+    └── 📁ys
+        └── 📁w7
+            └── ysw7bbi0hcr3acgbf8781zswykmt
+    └── 📁z8
+        └── 📁y0
+            └── z8y0eo0z6o3f4wugoji9ss3ydegg
+    └── 📁zk
+        ├── va
+└── 📁test
+    └── application_system_test_case.rb
+    └── 📁channels
+        └── 📁application_cable
+            └── connection_test.rb
+    └── 📁controllers
+        └── .keep
+        └── events_controller_test.rb
+    └── 📁fixtures
+        └── events.yml
+        └── 📁files
+            └── .keep
+        └── users.yml
+    └── 📁helpers
+        └── .keep
+    └── 📁integration
+        └── .keep
+    └── 📁mailers
+        └── .keep
+        └── 📁previews
+            └── user_mailer_preview.rb
+        └── user_mailer_test.rb
+    └── 📁models
+        └── .keep
+        └── event_test.rb
+        └── user_test.rb
+    └── 📁system
+        └── .keep
+    └── test_helper.rb
+└── 📁vendor
+    └── .keep
+    └── 📁javascript
+        └── .keep
+        └── Control-Geocoder.js
+└── config.ru
+└── Dockerfile
+└── Gemfile
+└── Gemfile.lock
+└── LICENSE.md
+└── README.md
+```
 
-This README would normally document whatever steps are necessary to get the application up and running.
+## Description
 
-Things you may want to cover:
+Use Framework Stimulus to add functionalities of JavaScript
+Functionalities as automatic email reminders when you have an event for tomorrow, confirm account when you registered on the app, reset your password, search filters, interactive map, see other users events, hide your events for other users, pagination, edit & delete events
 
-- Title or Project Name
-- Table of contents
-- Description. A brief description of what the project is about
-- How to Install and Run the Project.
-- How to Use the Project.
-- Credits
-- Badges
+## Install and Run the Project.
 
+Run in your terminal `git clone git@github.com:angel23v/EVENT-MANAGEMENT-SYSTEM.git`
+
+## How to Use the Project.
+
+Run in your terminal `rails server`
+
+## Credits
+
+Author: angel23v <angelvazquezvirgen@gmail.com>
 
 Esta obra está bajo una
 [Licencia Creative Commons Atribución-NoComercial-CompartirIgual 4.0 Internacional][cc-by-nc-sa].
